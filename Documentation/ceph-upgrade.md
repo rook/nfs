@@ -307,7 +307,14 @@ step to upgrade the Prometheus RBAC resources as well.
 kubectl apply -f cluster/examples/kubernetes/ceph/monitoring/rbac.yaml
 ```
 
-### **2. Update Ceph CSI versions**
+### Updates for optional resources
+If you have [Prometheus monitoring](ceph-monitoring.md) enabled, follow the
+step to upgrade the Prometheus RBAC resources as well.
+```sh
+kubectl apply -f cluster/examples/kubernetes/ceph/monitoring/rbac.yaml
+```
+
+## 2. Update Ceph CSI versions
 
 > Automatically updated if you are upgrading via the helm chart
 

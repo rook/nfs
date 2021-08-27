@@ -28,7 +28,7 @@ import (
 	"syscall"
 
 	"github.com/coreos/pkg/capnslog"
-	"github.com/rook/rook/pkg/operator/k8sutil"
+	"github.com/rook/nfs/pkg/operator/k8sutil"
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/errors"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -50,7 +50,7 @@ const (
 )
 
 var (
-	logger = capnslog.NewPackageLogger("github.com/rook/rook", "job-reporter-cmd")
+	logger = capnslog.NewPackageLogger("github.com/rook/nfs", "job-reporter-cmd")
 )
 
 // CmdReporter is a process intended to be run in simple Kubernetes jobs. The CmdReporter runs a

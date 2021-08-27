@@ -17,9 +17,9 @@ limitations under the License.
 package nfs
 
 import (
-	"github.com/rook/rook/cmd/rook/rook"
-	operator "github.com/rook/rook/pkg/operator/nfs"
-	"github.com/rook/rook/pkg/util/flags"
+	"github.com/rook/nfs/cmd/rook/rook"
+	operator "github.com/rook/nfs/pkg/operator/nfs"
+	"github.com/rook/nfs/pkg/util/flags"
 	"github.com/spf13/cobra"
 )
 
@@ -27,7 +27,7 @@ var operatorCmd = &cobra.Command{
 	Use:   "operator",
 	Short: "Runs the NFS operator to deploy and manage NFS server in kubernetes clusters",
 	Long: `Runs the NFS operator to deploy and manage NFS server in kubernetes clusters.
-https://github.com/rook/rook`,
+https://github.com/rook/nfs`,
 }
 
 func init() {

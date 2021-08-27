@@ -23,9 +23,9 @@ import (
 	"strings"
 	"time"
 
-	nfsv1alpha1 "github.com/rook/rook/pkg/apis/nfs.rook.io/v1alpha1"
-	"github.com/rook/rook/pkg/clusterd"
-	"github.com/rook/rook/pkg/operator/k8sutil"
+	nfsv1alpha1 "github.com/rook/nfs/pkg/apis/nfs.rook.io/v1alpha1"
+	"github.com/rook/nfs/pkg/clusterd"
+	"github.com/rook/nfs/pkg/operator/k8sutil"
 
 	"github.com/coreos/pkg/capnslog"
 	appsv1 "k8s.io/api/apps/v1"

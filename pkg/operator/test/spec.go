@@ -25,7 +25,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-var logger = capnslog.NewPackageLogger("github.com/rook/rook", "ceph-op-testlib")
+var logger = capnslog.NewPackageLogger("github.com/rook/nfs", "ceph-op-testlib")
 
 // ArgumentsMatchExpected returns a descriptive error if any of the expected arguments do not exist.
 // This supports arguments in which flags appear multiple times with different values but does not

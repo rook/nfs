@@ -12,7 +12,6 @@ defaults:
 
 jobs:
   TestNfsSuite:
-    if: ${{ github.event_name == 'pull_request' && github.ref != 'refs/heads/master' && contains(github.event.pull_request.labels.*.name, 'nfs')}}
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
@@ -52,7 +51,7 @@ jobs:
         sudo apt-get install nfs-common
 
     - name: TestNFSSuite
-      run: go test -v -timeout 1800s -run NfsSuite github.com/rook/rook/tests/integration
+      run: go test -v -timeout 1800s -run NfsSuite github.com/rook/nfs/tests/integration
 
     - name: Artifact
       uses: actions/upload-artifact@v2

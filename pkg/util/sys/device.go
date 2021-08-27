@@ -25,7 +25,7 @@ import (
 	"strings"
 
 	"github.com/google/uuid"
-	"github.com/rook/rook/pkg/util/exec"
+	"github.com/rook/nfs/pkg/util/exec"
 )
 
 const (

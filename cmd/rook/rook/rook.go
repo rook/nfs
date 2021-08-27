@@ -25,12 +25,12 @@ import (
 	"github.com/coreos/pkg/capnslog"
 	netclient "github.com/k8snetworkplumbingwg/network-attachment-definition-client/pkg/client/clientset/versioned/typed/k8s.cni.cncf.io/v1"
 	"github.com/pkg/errors"
-	rookclient "github.com/rook/rook/pkg/client/clientset/versioned"
-	"github.com/rook/rook/pkg/clusterd"
-	"github.com/rook/rook/pkg/operator/k8sutil"
-	"github.com/rook/rook/pkg/util/exec"
-	"github.com/rook/rook/pkg/util/flags"
-	"github.com/rook/rook/pkg/version"
+	rookclient "github.com/rook/nfs/pkg/client/clientset/versioned"
+	"github.com/rook/nfs/pkg/clusterd"
+	"github.com/rook/nfs/pkg/operator/k8sutil"
+	"github.com/rook/nfs/pkg/util/exec"
+	"github.com/rook/nfs/pkg/util/flags"
+	"github.com/rook/nfs/pkg/version"
 	"github.com/spf13/cobra"
 	"github.com/spf13/pflag"
 	"github.com/tevino/abool"
@@ -57,7 +57,7 @@ var (
 	operatorImage      string
 	serviceAccountName string
 	Cfg                = &Config{}
-	logger             = capnslog.NewPackageLogger("github.com/rook/rook", "rookcmd")
+	logger             = capnslog.NewPackageLogger("github.com/rook/nfs", "rookcmd")
 )
 
 type Config struct {

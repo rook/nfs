@@ -22,8 +22,8 @@ import (
 	"reflect"
 	"testing"
 
-	rookclient "github.com/rook/rook/pkg/client/clientset/versioned"
-	rookclientfake "github.com/rook/rook/pkg/client/clientset/versioned/fake"
+	rookclient "github.com/rook/nfs/pkg/client/clientset/versioned"
+	rookclientfake "github.com/rook/nfs/pkg/client/clientset/versioned/fake"
 	corev1 "k8s.io/api/core/v1"
 	storagev1 "k8s.io/api/storage/v1"
 	apiresource "k8s.io/apimachinery/pkg/api/resource"

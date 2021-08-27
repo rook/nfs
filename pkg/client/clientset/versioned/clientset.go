@@ -21,10 +21,8 @@ package versioned
 import (
 	"fmt"
 
-	cassandrav1alpha1 "github.com/rook/rook/pkg/client/clientset/versioned/typed/cassandra.rook.io/v1alpha1"
-	cephv1 "github.com/rook/rook/pkg/client/clientset/versioned/typed/ceph.rook.io/v1"
-	nfsv1alpha1 "github.com/rook/rook/pkg/client/clientset/versioned/typed/nfs.rook.io/v1alpha1"
-	rookv1alpha2 "github.com/rook/rook/pkg/client/clientset/versioned/typed/rook.io/v1alpha2"
+	nfsv1alpha1 "github.com/rook/nfs/pkg/client/clientset/versioned/typed/nfs.rook.io/v1alpha1"
+	rookv1alpha2 "github.com/rook/nfs/pkg/client/clientset/versioned/typed/rook.io/v1alpha2"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"
@@ -32,8 +30,6 @@ import (
 
 type Interface interface {
 	Discovery() discovery.DiscoveryInterface
-	CassandraV1alpha1() cassandrav1alpha1.CassandraV1alpha1Interface
-	CephV1() cephv1.CephV1Interface
 	NfsV1alpha1() nfsv1alpha1.NfsV1alpha1Interface
 	RookV1alpha2() rookv1alpha2.RookV1alpha2Interface
 }
@@ -42,20 +38,8 @@ type Interface interface {
 // version included in a Clientset.
 type Clientset struct {
 	*discovery.DiscoveryClient
-	cassandraV1alpha1 *cassandrav1alpha1.CassandraV1alpha1Client
-	cephV1            *cephv1.CephV1Client
-	nfsV1alpha1       *nfsv1alpha1.NfsV1alpha1Client
-	rookV1alpha2      *rookv1alpha2.RookV1alpha2Client
-}
-
-// CassandraV1alpha1 retrieves the CassandraV1alpha1Client
-func (c *Clientset) CassandraV1alpha1() cassandrav1alpha1.CassandraV1alpha1Interface {
-	return c.cassandraV1alpha1
-}
-
-// CephV1 retrieves the CephV1Client
-func (c *Clientset) CephV1() cephv1.CephV1Interface {
-	return c.cephV1
+	nfsV1alpha1  *nfsv1alpha1.NfsV1alpha1Client
+	rookV1alpha2 *rookv1alpha2.RookV1alpha2Client
 }
 
 // NfsV1alpha1 retrieves the NfsV1alpha1Client
@@ -89,14 +73,6 @@ func NewForConfig(c *rest.Config) (*Clientset, error) {
 	}
 	var cs Clientset
 	var err error
-	cs.cassandraV1alpha1, err = cassandrav1alpha1.NewForConfig(&configShallowCopy)
-	if err != nil {
-		return nil, err
-	}
-	cs.cephV1, err = cephv1.NewForConfig(&configShallowCopy)
-	if err != nil {
-		return nil, err
-	}
 	cs.nfsV1alpha1, err = nfsv1alpha1.NewForConfig(&configShallowCopy)
 	if err != nil {
 		return nil, err
@@ -117,8 +93,6 @@ func NewForConfig(c *rest.Config) (*Clientset, error) {
 // panics if there is an error in the config.
 func NewForConfigOrDie(c *rest.Config) *Clientset {
 	var cs Clientset
-	cs.cassandraV1alpha1 = cassandrav1alpha1.NewForConfigOrDie(c)
-	cs.cephV1 = cephv1.NewForConfigOrDie(c)
 	cs.nfsV1alpha1 = nfsv1alpha1.NewForConfigOrDie(c)
 	cs.rookV1alpha2 = rookv1alpha2.NewForConfigOrDie(c)
 
@@ -129,8 +103,6 @@ func NewForConfigOrDie(c *rest.Config) *Clientset {
 // New creates a new Clientset for the given RESTClient.
 func New(c rest.Interface) *Clientset {
 	var cs Clientset
-	cs.cassandraV1alpha1 = cassandrav1alpha1.New(c)
-	cs.cephV1 = cephv1.New(c)
 	cs.nfsV1alpha1 = nfsv1alpha1.New(c)
 	cs.rookV1alpha2 = rookv1alpha2.New(c)
 

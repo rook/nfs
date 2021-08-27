@@ -19,9 +19,9 @@ package nfs
 import (
 	"errors"
 
-	"github.com/rook/rook/cmd/rook/rook"
-	"github.com/rook/rook/pkg/operator/nfs"
-	"github.com/rook/rook/pkg/util/flags"
+	"github.com/rook/nfs/cmd/rook/rook"
+	"github.com/rook/nfs/pkg/operator/nfs"
+	"github.com/rook/nfs/pkg/util/flags"
 	"github.com/spf13/cobra"
 )
 
@@ -29,7 +29,7 @@ var serverCmd = &cobra.Command{
 	Use:   "server",
 	Short: "Runs the NFS server to deploy and manage NFS server in kubernetes clusters",
 	Long: `Runs the NFS operator to deploy and manage NFS server in kubernetes clusters.
-https://github.com/rook/rook`,
+https://github.com/rook/nfs`,
 }
 
 var (

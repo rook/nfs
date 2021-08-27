@@ -18,7 +18,7 @@ don't hesitate to reach out to us on our [Slack](https://Rook-io.slack.com) dev 
 
 ### Create a Fork
 
-From your browser navigate to [http://github.com/rook/rook](http://github.com/rook/rook) and click the "Fork" button.
+From your browser navigate to [http://github.com/rook/nfs](http://github.com/rook/nfs) and click the "Fork" button.
 
 ### Clone Your Fork
 
@@ -87,7 +87,7 @@ First you will need to add the upstream remote to your local git:
 
 ```console
 # Add 'upstream' to the list of remotes
-git remote add upstream https://github.com/rook/rook.git
+git remote add upstream https://github.com/rook/nfs.git
 
 # Verify the remote was added
 git remote -v
@@ -177,7 +177,7 @@ Submit a pull request for the design to be discussed and approved by the communi
 
 An issue should be opened to track the work of authoring and completing the design document.
 This issue is in addition to the issue that is tracking the implementation of the feature.
-The [design label](https://github.com/rook/rook/labels/design) should be assigned to the issue to denote it as such.
+The [design label](https://github.com/rook/nfs/labels/design) should be assigned to the issue to denote it as such.
 
 ### Create a Branch
 
@@ -243,7 +243,7 @@ go tool cover -html=coverage.out -o coverage.html
 #### Running the Integration Tests
 
 For instructions on how to execute the end to end smoke test suite,
-follow the [test instructions](https://github.com/rook/rook/blob/master/tests/README.md).
+follow the [test instructions](https://github.com/rook/nfs/blob/master/tests/README.md).
 
 ### Commit structure
 
@@ -265,7 +265,7 @@ component: commit title
 This is the commit message, here I'm explaining, what the bug was along with its root cause.
 Then I'm explaining how I fixed it.
 
-Closes: https://github.com/rook/rook/issues/<NUMBER>
+Closes: https://github.com/rook/nfs/issues/<NUMBER>
 Signed-off-by: First Name Last Name <email address>
 ```
 
@@ -305,7 +305,7 @@ Once your commit history is clean, ensure you have based on the [latest upstream
 
 ### Submitting
 
-Go to the [Rook github](https://www.github.com/rook/rook) to open the PR. If you have pushed recently, you should see an obvious link to open the PR. If you have not pushed recently, go to the Pull Request tab and select your fork and branch for the PR.
+Go to the [Rook github](https://www.github.com/rook/nfs) to open the PR. If you have pushed recently, you should see an obvious link to open the PR. If you have not pushed recently, go to the Pull Request tab and select your fork and branch for the PR.
 
 After the PR is open, you can make changes simply by pushing new commits. Your PR will track the changes in your fork and update automatically.
 

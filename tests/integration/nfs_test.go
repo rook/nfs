@@ -21,9 +21,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/rook/rook/tests/framework/clients"
-	"github.com/rook/rook/tests/framework/installer"
-	"github.com/rook/rook/tests/framework/utils"
+	"github.com/rook/nfs/tests/framework/clients"
+	"github.com/rook/nfs/tests/framework/installer"
+	"github.com/rook/nfs/tests/framework/utils"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 	"github.com/stretchr/testify/suite"

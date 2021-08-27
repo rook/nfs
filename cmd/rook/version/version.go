@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/rook/rook/pkg/version"
+	"github.com/rook/nfs/pkg/version"
 	"github.com/spf13/cobra"
 )
 

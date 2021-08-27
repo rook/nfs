@@ -1,11 +1,9 @@
 <img alt="Rook" src="Documentation/media/logo.svg" width="50%" height="50%">
 
 [![CNCF Status](https://img.shields.io/badge/cncf%20status-graduated-blue.svg)](https://www.cncf.io/projects)
-[![GitHub release](https://img.shields.io/github/release/rook/rook/all.svg)](https://github.com/rook/rook/releases)
-[![Docker Pulls](https://img.shields.io/docker/pulls/rook/ceph)](https://hub.docker.com/u/rook)
-[![Go Report Card](https://goreportcard.com/badge/github.com/rook/rook)](https://goreportcard.com/report/github.com/rook/rook)
-[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/1599/badge)](https://bestpractices.coreinfrastructure.org/projects/1599)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Frook%2Frook.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Frook%2Frook?ref=badge_shield)
+[![GitHub release](https://img.shields.io/github/release/rook/nfs/all.svg)](https://github.com/rook/nfs/releases)
+[![Docker Pulls](https://img.shields.io/docker/pulls/rook/nfs)](https://hub.docker.com/u/rook)
+[![Go Report Card](https://goreportcard.com/badge/github.com/rook/nfs)](https://goreportcard.com/report/github.com/rook/nfs)
 [![Slack](https://slack.rook.io/badge.svg)](https://slack.rook.io)
 [![Twitter Follow](https://img.shields.io/twitter/follow/rook_io.svg?style=social&label=Follow)](https://twitter.com/intent/follow?screen_name=rook_io&user_id=788180534543339520)
 
@@ -32,7 +30,7 @@ We welcome contributions. See [Contributing](CONTRIBUTING.md) to get started.
 
 ## Report a Bug
 
-For filing bugs, suggesting improvements, or requesting new features, please open an [issue](https://github.com/rook/rook/issues).
+For filing bugs, suggesting improvements, or requesting new features, please open an [issue](https://github.com/rook/nfs/issues).
 
 ### Reporting Security Vulnerabilities
 
@@ -78,20 +76,12 @@ More details about API versioning and status in Kubernetes can be found on the K
 
 | Name        | Details                                                                                                                                                                                                                                                                                                                | API Group                    | Status                                                                         |
 | ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ------------------------------------------------------------------------------ |
-| Ceph        | [Ceph](https://ceph.com/) is a distributed storage system that provides file, block and object storage and is deployed in large scale production clusters.                                                                                                                                                             | ceph.rook.io/v1              | Stable                                                                         |
-| Cassandra   | [Cassandra](http://cassandra.apache.org/) is a highly available NoSQL database featuring lightning fast performance, tunable consistency and massive scalability. [Scylla](https://www.scylladb.com) is a close-to-the-hardware rewrite of Cassandra in C++, which enables much lower latencies and higher throughput. | cassandra.rook.io/v1alpha1   | Alpha                                                                          |
 | NFS         | [Network File System (NFS)](https://github.com/nfs-ganesha/nfs-ganesha/wiki) allows remote hosts to mount file systems over a network and interact with those file systems as though they are mounted locally.                                                                                                         | nfs.rook.io/v1alpha1         | Alpha                                                                          |
-| CockroachDB | [CockroachDB](https://www.cockroachlabs.com/product/cockroachdb/) is a cloud-native SQL database for building global, scalable cloud services that survive disasters.                                                                                                                                                  | cockroachdb.rook.io/v1alpha1 | [Deprecated](https://github.com/rook/rook/issues/6990)*                        |
-| EdgeFS      | [EdgeFS](http://edgefs.io) is high-performance and fault-tolerant decentralized data fabric with access to object, file, NoSQL and block.                                                                                                                                                                              | edgefs.rook.io/v1            | [Deprecated](https://github.com/rook/rook/issues/5823#issuecomment-703834989)* |
-| YugabyteDB  | [YugabyteDB](https://docs.yugabyte.com/latest/introduction/) is a high-performance, cloud-native distributed SQL database which can tolerate disk, node, zone and region failures automatically.                                                                                                                       | yugabytedb.rook.io/v1alpha1  | [Deprecated](https://github.com/rook/rook/issues/6992#issuecomment-771297708)* |
-
-\* CockroachDB, EdgeFS, and YugabyteDB were removed from Rook in v1.6. See [Rook v1.5](https://rook.github.io/docs/rook/v1.5/) docs if still interested.
-   For YugabyteDB, see the replacement operator [here](https://github.com/yugabyte/yugabyte-operator).
 
 ### Official Releases
 
-Official releases of Rook can be found on the [releases page](https://github.com/rook/rook/releases).
-Please note that it is **strongly recommended** that you use [official releases](https://github.com/rook/rook/releases) of Rook, as unreleased versions from the master branch are subject to changes and incompatibilities that will not be supported in the official releases.
+Official releases of Rook can be found on the [releases page](https://github.com/rook/nfs/releases).
+Please note that it is **strongly recommended** that you use [official releases](https://github.com/rook/nfs/releases) of Rook, as unreleased versions from the master branch are subject to changes and incompatibilities that will not be supported in the official releases.
 Builds from the master branch can have functionality changed and even removed at any time without compatibility support and without prior notice.
 
 ## Licensing

@@ -19,8 +19,8 @@ limitations under the License.
 package v1alpha2
 
 import (
-	v1alpha2 "github.com/rook/rook/pkg/apis/rook.io/v1alpha2"
-	"github.com/rook/rook/pkg/client/clientset/versioned/scheme"
+	v1alpha2 "github.com/rook/nfs/pkg/apis/rook.io/v1alpha2"
+	"github.com/rook/nfs/pkg/client/clientset/versioned/scheme"
 	rest "k8s.io/client-go/rest"
 )
 

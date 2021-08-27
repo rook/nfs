@@ -21,7 +21,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/rook/rook/tests/framework/utils"
+	"github.com/rook/nfs/tests/framework/utils"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 

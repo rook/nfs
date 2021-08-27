@@ -18,10 +18,10 @@ limitations under the License.
 package nfs
 
 import (
-	nfsv1alpha1 "github.com/rook/rook/pkg/apis/nfs.rook.io/v1alpha1"
+	nfsv1alpha1 "github.com/rook/nfs/pkg/apis/nfs.rook.io/v1alpha1"
 
 	"github.com/coreos/pkg/capnslog"
-	"github.com/rook/rook/pkg/clusterd"
+	"github.com/rook/nfs/pkg/clusterd"
 	"k8s.io/apimachinery/pkg/runtime"
 	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
 	ctrl "sigs.k8s.io/controller-runtime"
@@ -30,7 +30,7 @@ import (
 var (
 	scheme         = runtime.NewScheme()
 	controllerName = "nfs-operator"
-	logger         = capnslog.NewPackageLogger("github.com/rook/rook", controllerName)
+	logger         = capnslog.NewPackageLogger("github.com/rook/nfs", controllerName)
 )
 
 // Operator type for managing NFS Server.

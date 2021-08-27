@@ -26,17 +26,11 @@ cross: cross.linux_amd64 ## Build images used for cross building.
 cross.%:
 	@$(MAKE) -C cross PLATFORM=$*
 
-ceph.%:
-	@$(MAKE) -C ceph PLATFORM=$*
-
 nfs.%:
 	@$(MAKE) -C nfs PLATFORM=$*
 
-cassandra.%:
-	@$(MAKE) -C cassandra PLATFORM=$*
 
-
-do.build.images.%: $(foreach i,$(IMAGES), $(i).%);
+do.build.images.%: nfs.%;
 
 do.build: do.build.images.$(PLATFORM) ;
 build.all: $(foreach p,$(PLATFORMS), do.build.images.$(p)) ; ## Build images for all platforms.

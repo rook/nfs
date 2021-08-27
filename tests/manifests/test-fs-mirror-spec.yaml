@@ -1,9 +1,0 @@
-spec:
-  mirroring:
-    enabled: true
-    snapshotSchedules:
-      - path: /
-        interval: 24h
-    snapshotRetention:
-      - path: /
-        duration: "h 24"

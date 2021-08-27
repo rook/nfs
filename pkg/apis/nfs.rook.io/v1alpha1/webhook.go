@@ -28,7 +28,7 @@ import (
 
 var (
 	webhookName = "nfs-webhook"
-	logger      = capnslog.NewPackageLogger("github.com/rook/rook", webhookName)
+	logger      = capnslog.NewPackageLogger("github.com/rook/nfs", webhookName)
 )
 
 // compile-time assertions ensures NFSServer implements webhook.Defaulter so a webhook builder

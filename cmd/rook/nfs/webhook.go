@@ -17,8 +17,8 @@ limitations under the License.
 package nfs
 
 import (
-	"github.com/rook/rook/cmd/rook/rook"
-	operator "github.com/rook/rook/pkg/operator/nfs"
+	"github.com/rook/nfs/cmd/rook/rook"
+	operator "github.com/rook/nfs/pkg/operator/nfs"
 	"github.com/spf13/cobra"
 )
 

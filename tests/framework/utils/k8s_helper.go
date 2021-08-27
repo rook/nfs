@@ -33,11 +33,9 @@ import (
 
 	"github.com/coreos/pkg/capnslog"
 	"github.com/pkg/errors"
-	rookclient "github.com/rook/rook/pkg/client/clientset/versioned"
-	"github.com/rook/rook/pkg/clusterd"
-	"github.com/rook/rook/pkg/operator/ceph/cluster/crash"
-	"github.com/rook/rook/pkg/operator/k8sutil"
-	"github.com/rook/rook/pkg/util/exec"
+	rookclient "github.com/rook/nfs/pkg/client/clientset/versioned"
+	"github.com/rook/nfs/pkg/clusterd"
+	"github.com/rook/nfs/pkg/util/exec"
 	"github.com/stretchr/testify/require"
 	apps "k8s.io/api/apps/v1"
 	v1 "k8s.io/api/core/v1"
@@ -107,7 +105,7 @@ func CreateK8sHelper(t func() *testing.T) (*K8sHelper, error) {
 }
 
 var (
-	k8slogger = capnslog.NewPackageLogger("github.com/rook/rook", "utils")
+	k8slogger = capnslog.NewPackageLogger("github.com/rook/nfs", "utils")
 	cmd       = getCmd()
 	// RetryLoop params for tests.
 	RetryLoop = TestRetryNumber()
@@ -1700,35 +1698,6 @@ func (k8sh *K8sHelper) WaitForLabeledDeploymentsToBeReadyWithRetries(label, name
 		}
 	}
 	return fmt.Errorf("giving up waiting for deployment(s) with label %s in namespace %s to be ready", label, namespace)
-}
-
-func (k8sh *K8sHelper) WaitForCronJob(name, namespace string) error {
-	k8sVersion, err := k8sutil.GetK8SVersion(k8sh.Clientset)
-	if err != nil {
-		return errors.Wrap(err, "failed to get k8s version")
-	}
-	useCronJobV1 := k8sVersion.AtLeast(version.MustParseSemantic(crash.MinVersionForCronV1))
-	for i := 0; i < RetryLoop; i++ {
-		var err error
-		if useCronJobV1 {
-			_, err = k8sh.Clientset.BatchV1().CronJobs(namespace).Get(context.TODO(), name, metav1.GetOptions{})
-		} else {
-			_, err = k8sh.Clientset.BatchV1beta1().CronJobs(namespace).Get(context.TODO(), name, metav1.GetOptions{})
-		}
-		if err != nil {
-			if kerrors.IsNotFound(err) {
-				logger.Infof("waiting for CronJob named %s in namespace %s", name, namespace)
-				time.Sleep(RetryInterval * time.Second)
-				continue
-			}
-
-			return fmt.Errorf("failed to find CronJob named %s. %+v", name, err)
-		}
-
-		logger.Infof("found CronJob with name %s in namespace %s", name, namespace)
-		return nil
-	}
-	return fmt.Errorf("giving up waiting for CronJob named %s in namespace %s", name, namespace)
 }
 
 func (k8sh *K8sHelper) GetResourceStatus(kind, name, namespace string) (string, error) {

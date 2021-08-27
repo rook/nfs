@@ -6,7 +6,7 @@ Rook turns storage software into self-managing, self-scaling, and self-healing s
 
 Rook integrates deeply into cloud native environments leveraging extension points and providing a seamless experience for scheduling, lifecycle management, resource management, security, monitoring, and user experience.
 
-For more details about the status of storage solutions currently supported by Rook, please refer to the [project status section](https://github.com/rook/rook/blob/master/README.md#project-status) of the Rook repository.
+For more details about the status of storage solutions currently supported by Rook, please refer to the [project status section](https://github.com/rook/nfs/blob/master/README.md#project-status) of the Rook repository.
 We plan to continue adding support for other storage systems and environments based on community demand and engagement in future releases.
 
 ## Quick Start Guides
@@ -22,7 +22,7 @@ High-level Storage Provider design documents:
 | ----------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | [Ceph](ceph-storage.md) | Stable | Ceph is a highly scalable distributed storage solution for block storage, object storage, and shared filesystems with years of production deployments. |
 
-Low level design documentation for supported list of storage systems collected at [design docs](https://github.com/rook/rook/tree/master/design) section.
+Low level design documentation for supported list of storage systems collected at [design docs](https://github.com/rook/nfs/tree/master/design) section.
 
 ## Need help? Be sure to join the Rook Slack
 

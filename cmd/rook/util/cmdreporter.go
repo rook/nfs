@@ -18,9 +18,10 @@ package util
 
 import (
 	"fmt"
-	"github.com/rook/rook/pkg/daemon/util"
 
-	"github.com/rook/rook/cmd/rook/rook"
+	"github.com/rook/nfs/pkg/daemon/util"
+
+	"github.com/rook/nfs/cmd/rook/rook"
 	"github.com/spf13/cobra"
 )
 

@@ -15,7 +15,6 @@
 all: build
 
 include ../makelib/common.mk
-include ../makelib/helm.mk
 
 # ====================================================================================
 # Options
@@ -37,7 +36,7 @@ DOCS_WORK_DIR := $(WORK_DIR)/rook.github.io
 DOCS_VERSION_DIR := $(DOCS_WORK_DIR)/docs/rook/$(DOCS_VERSION)
 
 ifdef GIT_API_TOKEN
-DOCS_GIT_REPO := https://$(GIT_API_TOKEN)@github.com/rook/rook.github.io.git
+DOCS_GIT_REPO := https://$(GIT_API_TOKEN)@github.com/rook/nfs.github.io.git
 else
 DOCS_GIT_REPO := git@github.com:rook/rook.github.io.git
 endif
@@ -55,7 +54,7 @@ REMOTE_NAME ?= origin
 PLATFORMS ?= $(ALL_PLATFORMS)
 
 ifneq ($(filter master release-%,$(BRANCH_NAME)),)
-FLAVORS ?= output images docs helm
+FLAVORS ?= output images
 else
 FLAVORS ?= output
 override BRANCH_NAME := pr/$(BRANCH_NAME)
@@ -115,20 +114,6 @@ endif
 		git branch -f release-$(VERSION_MAJOR).$(VERSION_MINOR) $(COMMIT_HASH) ;\
 		git push $(REMOTE_NAME) release-$(VERSION_MAJOR).$(VERSION_MINOR) ;\
 	fi
-
-# ====================================================================================
-# docs
-
-build.docs:
-	rm -rf $(DOCS_WORK_DIR)
-	mkdir -p $(DOCS_WORK_DIR)
-	git clone --depth=1 -b master $(DOCS_GIT_REPO) $(DOCS_WORK_DIR)
-	rm -rf $(DOCS_VERSION_DIR)
-	cp -r $(DOCS_DIR)/ $(DOCS_VERSION_DIR)
-	cd $(DOCS_WORK_DIR) && DOCS_VERSION=$(DOCS_VERSION) $(MAKE) _data/projects.json
-
-publish.docs:
-	cd $(DOCS_WORK_DIR) && DOCS_VERSION=$(DOCS_VERSION) $(MAKE) publish
 
 # ====================================================================================
 # helm

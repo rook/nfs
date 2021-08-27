@@ -14,7 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-GROUP_VERSIONS="rook.io:v1alpha2 ceph.rook.io:v1 nfs.rook.io:v1alpha1 cassandra.rook.io:v1alpha1"
+GROUP_VERSIONS="rook.io:v1alpha2 nfs.rook.io:v1alpha1"
 
 scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -25,8 +25,8 @@ scriptdir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # run code deepcopy generation
 bash ${CODE_GENERATOR}/generate-groups.sh \
     deepcopy \
-    github.com/rook/rook/pkg/client \
-    github.com/rook/rook/pkg/apis \
+    github.com/rook/nfs/pkg/client \
+    github.com/rook/nfs/pkg/apis \
     "${GROUP_VERSIONS}" \
     --output-base "$(dirname "${BASH_SOURCE[0]}")/../../../../.." \
     --go-header-file "${scriptdir}/boilerplate.go.txt"
@@ -34,9 +34,8 @@ bash ${CODE_GENERATOR}/generate-groups.sh \
 # run code client,lister,informer generation
 bash ${CODE_GENERATOR}/generate-groups.sh \
     client,lister,informer \
-    github.com/rook/rook/pkg/client \
-    github.com/rook/rook/pkg/apis \
+    github.com/rook/nfs/pkg/client \
+    github.com/rook/nfs/pkg/apis \
     "${GROUP_VERSIONS}" \
     --output-base "$(dirname "${BASH_SOURCE[0]}")/../../../../.." \
-    --go-header-file "${scriptdir}/boilerplate.go.txt" \
-    --plural-exceptions "CephNFS:CephNFSes" \
+    --go-header-file "${scriptdir}/boilerplate.go.txt"

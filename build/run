@@ -79,7 +79,7 @@ if [ "`uname -s`" != "Linux" ]; then
     #    /.aws (bind mounted to host ${HOME}/.aws)
     #    /.docker (bind mounted to host ${HOME}/.docker)
     #    /.cache (bind mounted to host ${CACHE_DIR} if set)
-    #    /go/src/github.com/rook/rook (rsync'd from host <source>)
+    #    /go/src/github.com/rook/nfs (rsync'd from host <source>)
 
     # now copy the source tree to the container volume. Note this also
     # copies the .git directory but not the index.lock files which
@@ -104,7 +104,7 @@ else
     #    /.docker (bind mounted to host ${HOME}/.docker)
     #    /go
     #       /pkg (bind mounted to <source>/.work/cross_pkg)
-    #       /src/github.com/rook/rook (bind mounted to <source>)
+    #       /src/github.com/rook/nfs (bind mounted to <source>)
 
     MOUNT_OPTS="${MOUNT_OPTS} \
         -v ${scriptdir}/../.work/cross_pkg:${BUILDER_HOME}/go/pkg

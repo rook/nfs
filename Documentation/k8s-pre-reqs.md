@@ -15,7 +15,7 @@ you can quickly set one up using [Minikube](#minikube), [Kubeadm](#kubeadm) or [
 Kubernetes **v1.11** or higher is supported for the Ceph operator.
 Kubernetes **v1.16** or higher is supported for the Cassandra and NFS operators.
 
-**Important** If you are using K8s 1.15 or older, you will need to create a different version of the Ceph CRDs. Create the `crds.yaml` found in the [pre-k8s-1.16](https://github.com/rook/rook/blob/{{ branchName }}/cluster/examples/kubernetes/ceph/pre-k8s-1.16) subfolder of the example manifests.
+**Important** If you are using K8s 1.15 or older, you will need to create a different version of the Ceph CRDs. Create the `crds.yaml` found in the [pre-k8s-1.16](https://github.com/rook/nfs/blob/{{ branchName }}/cluster/examples/kubernetes/ceph/pre-k8s-1.16) subfolder of the example manifests.
 
 ## Ceph Prerequisites
 
@@ -28,7 +28,7 @@ please review this section. By default, Kubernetes clusters do not have PSPs ena
 be able to skip this section.
 
 If you are configuring Ceph on OpenShift, the Ceph walkthrough will configure the PSPs as well
-when you start the operator with [operator-openshift.yaml](https://github.com/rook/rook/blob/{{ branchName }}/cluster/examples/kubernetes/ceph/operator-openshift.yaml).
+when you start the operator with [operator-openshift.yaml](https://github.com/rook/nfs/blob/{{ branchName }}/cluster/examples/kubernetes/ceph/operator-openshift.yaml).
 
 ### Cluster Role
 
@@ -52,7 +52,7 @@ using [PodSecurityPolicies](https://kubernetes.io/docs/concepts/policy/pod-secur
 for the different `ServiceAccounts` Rook uses to start the Rook Storage Pods.
 
 Security policies will differ for different backends. See Ceph's Pod Security Policies set up in
-[common.yaml](https://github.com/rook/rook/blob/{{ branchName }}/cluster/examples/kubernetes/ceph/common.yaml)
+[common.yaml](https://github.com/rook/nfs/blob/{{ branchName }}/cluster/examples/kubernetes/ceph/common.yaml)
 for an example of how this is done in practice.
 
 ### PodSecurityPolicy
@@ -132,8 +132,8 @@ The service accounts are:
 * `rook-ceph-mgr` (namespace: `rook-ceph`): Will affect the MGR pods in the `rook-ceph` namespace.
 * `rook-ceph-osd` (namespace: `rook-ceph`): Will affect the OSD pods in the `rook-ceph` namespace.
 
-You can do it either via e.g. `kubectl -n <namespace> edit serviceaccount default` or by modifying the [`operator.yaml`](https://github.com/rook/rook/blob/master/cluster/examples/kubernetes/ceph/operator.yaml)
-and [`cluster.yaml`](https://github.com/rook/rook/blob/master/cluster/examples/kubernetes/ceph/cluster.yaml) before deploying them.
+You can do it either via e.g. `kubectl -n <namespace> edit serviceaccount default` or by modifying the [`operator.yaml`](https://github.com/rook/nfs/blob/master/cluster/examples/kubernetes/ceph/operator.yaml)
+and [`cluster.yaml`](https://github.com/rook/nfs/blob/master/cluster/examples/kubernetes/ceph/cluster.yaml) before deploying them.
 
 Since it's the same procedure for all service accounts, here is just one example:
 

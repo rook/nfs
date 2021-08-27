@@ -20,9 +20,9 @@ import (
 	"context"
 	"errors"
 
-	"github.com/rook/rook/cmd/rook/rook"
-	"github.com/rook/rook/pkg/operator/nfs"
-	"github.com/rook/rook/pkg/util/flags"
+	"github.com/rook/nfs/cmd/rook/rook"
+	"github.com/rook/nfs/pkg/operator/nfs"
+	"github.com/rook/nfs/pkg/util/flags"
 	"github.com/spf13/cobra"
 	"sigs.k8s.io/sig-storage-lib-external-provisioner/v6/controller"
 )

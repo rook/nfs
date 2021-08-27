@@ -19,9 +19,12 @@ package clients
 import (
 	"fmt"
 
-	"github.com/rook/rook/tests/framework/utils"
+	"github.com/coreos/pkg/capnslog"
+	"github.com/rook/nfs/tests/framework/utils"
 	"github.com/stretchr/testify/assert"
 )
+
+var logger = capnslog.NewPackageLogger("github.com/rook/nfs/tests", "clients")
 
 // ReadWriteOperation is a wrapper for k8s rook file operations
 type ReadWriteOperation struct {

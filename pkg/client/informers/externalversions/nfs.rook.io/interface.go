@@ -19,8 +19,8 @@ limitations under the License.
 package nfs
 
 import (
-	internalinterfaces "github.com/rook/rook/pkg/client/informers/externalversions/internalinterfaces"
-	v1alpha1 "github.com/rook/rook/pkg/client/informers/externalversions/nfs.rook.io/v1alpha1"
+	internalinterfaces "github.com/rook/nfs/pkg/client/informers/externalversions/internalinterfaces"
+	v1alpha1 "github.com/rook/nfs/pkg/client/informers/externalversions/nfs.rook.io/v1alpha1"
 )
 
 // Interface provides access to each of this group's versions.

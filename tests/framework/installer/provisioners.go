@@ -20,7 +20,7 @@ import (
 	"fmt"
 	"io/ioutil"
 
-	"github.com/rook/rook/tests/framework/utils"
+	"github.com/rook/nfs/tests/framework/utils"
 	"k8s.io/apimachinery/pkg/api/errors"
 )
 

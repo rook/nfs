@@ -25,12 +25,12 @@ import (
 
 	"github.com/coreos/pkg/capnslog"
 
-	"github.com/rook/rook/pkg/util/exec"
-	"github.com/rook/rook/pkg/util/sys"
+	"github.com/rook/nfs/pkg/util/exec"
+	"github.com/rook/nfs/pkg/util/sys"
 )
 
 var (
-	logger = capnslog.NewPackageLogger("github.com/rook/rook", "inventory")
+	logger = capnslog.NewPackageLogger("github.com/rook/nfs", "inventory")
 	isRBD  = regexp.MustCompile("^rbd[0-9]+p?[0-9]{0,}$")
 )
 

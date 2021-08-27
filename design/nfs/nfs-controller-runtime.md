@@ -20,7 +20,7 @@ The implementation of this proposal is to rewrite NFS Operator controller to use
 
 ### Controller & Reconciliation
 
-Operators are Kubernetes extensions that use custom resources to manage applications and their components using the Kubernetes APIs and kubectl tooling. Operators follow the Kubernetes controller principles. The process in which the actual state of the object (both cluster object and external object) will be matching the desired state which called *Reconciliation* process in the controller-runtime. 
+Operators are Kubernetes extensions that use custom resources to manage applications and their components using the Kubernetes APIs and kubectl tooling. Operators follow the Kubernetes controller principles. The process in which the actual state of the object (both cluster object and external object) will be matching the desired state which called *Reconciliation* process in the controller-runtime.
 
 The current implementation is the operator watch an event (create, update and delete) of CustomResource and will be handled by registered function in `ResourceEventHandlerFuncs` which every event has its own handler but only the create handler that implemented.
 
@@ -168,7 +168,7 @@ Since *Semantic Validation* will be optional, validating CustomResource in the c
 1. https://kubernetes.io/docs/tasks/access-kubernetes-api/custom-resources/custom-resource-definitions/
 1. https://www.openshift.com/blog/kubernetes-operators-best-practices
 
-[rook-watchcr]: https://github.com/rook/rook/blob/release-1.3/pkg/operator/k8sutil/customresource.go#L48
+[rook-watchcr]: https://github.com/rook/nfs/blob/release-1.3/pkg/operator/k8sutil/customresource.go#L48
 [cert-manager]: https://cert-manager.io/
 [cert-manager-installation]: https://cert-manager.io/docs/installation/
 [cert-manager-cainjector]: https://cert-manager.io/docs/concepts/ca-injector/

@@ -276,9 +276,9 @@ func logOutput(stdout, stderr io.ReadCloser) {
 	// The child processes should appropriately be outputting at the desired global level.  Therefore,
 	// we always log at INFO level here, so that log statements from child procs at higher levels
 	// (e.g., WARNING) will still be displayed.  We are relying on the child procs to output appropriately.
-	childLogger := capnslog.NewPackageLogger("github.com/rook/rook", "exec")
+	childLogger := capnslog.NewPackageLogger("github.com/rook/nfs", "exec")
 	if !childLogger.LevelAt(capnslog.INFO) {
-		rl, err := capnslog.GetRepoLogger("github.com/rook/rook")
+		rl, err := capnslog.GetRepoLogger("github.com/rook/nfs")
 		if err == nil {
 			rl.SetLogLevel(map[string]capnslog.LogLevel{"exec": capnslog.INFO})
 		}

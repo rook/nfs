@@ -19,7 +19,7 @@ import (
 	"fmt"
 	"testing"
 
-	exectest "github.com/rook/rook/pkg/util/exec/test"
+	exectest "github.com/rook/nfs/pkg/util/exec/test"
 	"github.com/stretchr/testify/assert"
 )
 

@@ -15,7 +15,7 @@ set -u
 # limitations under the License.
 
 BUILD_HOST=$(hostname)
-BUILD_REPO=github.com/rook/rook
+BUILD_REPO=github.com/rook/nfs
 BUILD_ROOT=$( cd "$( dirname "${BASH_SOURCE[0]}" )/.." && pwd -P)
 SHA256CMD=${SHA256CMD:-shasum -a 256}
 BUILD_REGISTRY=build-$(echo "${BUILD_HOST}"-"${BUILD_ROOT}" | ${SHA256CMD} | cut -c1-8)

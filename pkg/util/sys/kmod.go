@@ -20,7 +20,7 @@ import (
 	"os/exec"
 	"strings"
 
-	pkgexec "github.com/rook/rook/pkg/util/exec"
+	pkgexec "github.com/rook/nfs/pkg/util/exec"
 )
 
 func getKernelVersion() (string, error) {

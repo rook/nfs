@@ -33,7 +33,7 @@ endif
 DOCS_VERSION := $(shell echo $(BRANCH_NAME) | sed -E "s/^release\-([0-9]+)\.([0-9]+)$$/v\1.\2/g")
 DOCS_DIR ?= $(ROOT_DIR)/Documentation
 DOCS_WORK_DIR := $(WORK_DIR)/rook.github.io
-DOCS_VERSION_DIR := $(DOCS_WORK_DIR)/docs/rook/$(DOCS_VERSION)
+DOCS_VERSION_DIR := $(DOCS_WORK_DIR)/docs/nfs/$(DOCS_VERSION)
 
 ifdef GIT_API_TOKEN
 DOCS_GIT_REPO := https://$(GIT_API_TOKEN)@github.com/rook/nfs.github.io.git
@@ -54,7 +54,7 @@ REMOTE_NAME ?= origin
 PLATFORMS ?= $(ALL_PLATFORMS)
 
 ifneq ($(filter master release-%,$(BRANCH_NAME)),)
-FLAVORS ?= output images
+FLAVORS ?= output images docs
 else
 FLAVORS ?= output
 override BRANCH_NAME := pr/$(BRANCH_NAME)
@@ -128,6 +128,20 @@ promote.helm: $(HELM)
 	@$(HELM) repo index --url $(HELM_URL) $(HELM_TEMP)
 	@$(S3_SYNC_DEL) $(HELM_TEMP) s3://$(HELM_S3_BUCKET)/$(CHANNEL)
 	@rm -fr $(HELM_TEMP)
+
+# ====================================================================================
+# docs
+
+build.docs:
+	rm -rf $(DOCS_WORK_DIR)
+	mkdir -p $(DOCS_WORK_DIR)
+	git clone --depth=1 -b master $(DOCS_GIT_REPO) $(DOCS_WORK_DIR)
+	rm -rf $(DOCS_VERSION_DIR)
+	cp -r $(DOCS_DIR)/ $(DOCS_VERSION_DIR)
+	cd $(DOCS_WORK_DIR) && DOCS_VERSION=$(DOCS_VERSION) $(MAKE) _data/projects.json
+
+publish.docs:
+	cd $(DOCS_WORK_DIR) && DOCS_VERSION=$(DOCS_VERSION) $(MAKE) publish
 
 # ====================================================================================
 # output

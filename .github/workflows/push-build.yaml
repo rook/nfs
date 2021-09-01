@@ -15,7 +15,7 @@ defaults:
 jobs:
   push-image-to-container-registry:
     runs-on: ubuntu-18.04
-    if: github.repository == 'rook/rook'
+    if: github.repository == 'rook/nfs'
     steps:
       - name: checkout
         uses: actions/checkout@v2

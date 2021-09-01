@@ -6,11 +6,11 @@ weight: 12000
 # Contributing
 
 Thank you for your time and effort to help us improve Rook! Here are a few steps to get started. If you have any questions,
-don't hesitate to reach out to us on our [Slack](https://Rook-io.slack.com) dev channel.
+don't hesitate to reach out to us on our [Slack](https://rook-io.slack.com) dev channel.
 
 ## Prerequisites
 
-1. [GO 1.13](https://golang.org/dl/) or greater installed
+1. [GO 1.16](https://golang.org/dl/) or greater installed
 2. Git client installed
 3. Github account
 
@@ -32,22 +32,16 @@ mkdir -p $GOPATH/src/github.com/rook
 cd $GOPATH/src/github.com/rook
 
 # Clone your fork, where <user> is your GitHub account name
-$ git clone https://github.com/<user>/rook.git
+$ git clone https://github.com/<user>/nfs.git
 cd rook
 ```
 
 ### Build
 
+Build the NFS operator image:
+
 ```console
-# build all rook storage providers
 make
-
-# build a single storage provider, where the IMAGES can be a subdirectory of the "images" folder:
-# "cassandra", "ceph", or "nfs"
-make IMAGES="cassandra" build
-
-# multiple storage providers can also be built
-make IMAGES="cassandra ceph" build
 ```
 
 If you want to use `podman` instead of `docker` then uninstall `docker` packages from your machine, make will automatically pick up `podman`.
@@ -103,36 +97,26 @@ A source code layout is shown below, annotated with comments about the use of ea
 rook
 ├── build                         # build makefiles and logic to build, publish and release all Rook artifacts
 ├── cluster
-│   ├── charts                    # Helm charts
-│   │   └── rook-ceph
 │   └── examples                  # Sample yaml files for Rook cluster
 │
 ├── cmd                           # Binaries with main entrypoint
-│   ├── rook                      # Main command entry points for operators and daemons
-│   └── rookflex                  # Main command entry points for Rook flexvolume driver
+│   └── rook                      # Main command entry points for operators and daemons
 │
-├── design                        # Design documents for the various components of the Rook project
+├── design                        # Design documents
 ├── Documentation                 # Rook project Documentation
 ├── images                        # Dockerfiles to build images for all supported storage providers
 │
 ├── pkg
 │   ├── apis
-│   │   ├── ceph.rook.io          # ceph specific specs for cluster, file, object
-│   │   │   ├── v1
-│   │   ├── nfs.rook.io           # nfs server specific specs
+│   │   ├── nfs.rook.io           # NFS server specific specs
 │   │   │   └── v1alpha1
 │   │   └── rook.io               # rook.io API group of common types
 │   │       └── v1alpha2
 │   ├── client                    # auto-generated strongly typed client code to access Rook APIs
 │   ├── clusterd
-│   ├── daemon                    # daemons for each storage provider
-│   │   ├── ceph
-│   │   └── discover
-│   ├── operator                  # all orchestration logic and custom controllers for each storage provider
-│   │   ├── ceph
-│   │   ├── discover
-│   │   ├── k8sutil
+│   ├── operator                  # all orchestration logic and custom controllers for the nfs operator
 │   │   ├── nfs
+│   │   ├── k8sutil
 │   │   └── test
 │   ├── test
 │   ├── util
@@ -143,9 +127,7 @@ rook
     │   ├── installer             # installs Rook and its supported storage providers into integration tests environments
     │   └── utils
     ├── integration               # all test cases that will be invoked during integration testing
-    ├── longhaul                  # longhaul tests
     └── scripts                   # scripts for setting up integration and manual testing environments
-
 ```
 
 ## Development
@@ -249,7 +231,7 @@ follow the [test instructions](https://github.com/rook/nfs/blob/master/tests/REA
 
 Rook maintainers value clear, lengthy and explanatory commit messages. So by default each of your commits must:
 
-* be prefixed by the component it's affecting, if Ceph, then the title of the commit message should be `ceph: my commit title`. If not the commit-lint bot will complain.
+* be prefixed by the component it's affecting
 * contain a commit message which explains the original issue and how it was fixed if a bug.
 If a feature it is a full description of the new functionality.
 * refer to the issue it's closing, this is mandatory when fixing a bug
@@ -272,12 +254,10 @@ Signed-off-by: First Name Last Name <email address>
 The `component` **MUST** be one of the following:
 - bot
 - build
-- cassandra
-- ceph
+- nfs
 - ci
 - core
 - docs
-- nfs
 - test
 
 Note: sometimes you will feel like there is not so much to say, for instance if you are fixing a typo in a text.
@@ -321,14 +301,3 @@ The flow for getting a fix into a release branch is:
 3. After your PR is merged to master, the mergify bot will automatically open a PR with your commits backported to the release branch
 4. If there are any conflicts you will need to resolve them by pulling the branch, resolving the conflicts and force push back the branch
 5. After the CI is green, the bot will automatically merge the backport PR.
-
-## Debugging operators locally
-
-Operators are meant to be run inside a Kubernetes cluster. However, this makes it harder to use debugging tools and slows down the developer cycle of edit-build-test since testing requires to build a container image, push to the cluster, restart the pods, get logs, etc.
-
-A common operator developer practice is to run the operator locally on the developer machine in order to leverage the developer tools and comfort.
-
-In order to support this external operator mode, rook detects if the operator is running outside of the cluster (using standard cluster env) and changes the behavior as follows:
-
-* Connecting to Kubernetes API will load the config from the user `~/.kube/config`.
-* Instead of the default [CommandExecutor](../pkg/util/exec/exec.go) this mode uses a [TranslateCommandExecutor](../pkg/util/exec/translate_exec.go) that executes every command issued by the operator to run as a Kubernetes job inside the cluster, so that any tools that the operator needs from its image can be called.

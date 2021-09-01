@@ -8,14 +8,8 @@ v1.8...
 
 ## Breaking Changes
 
-### Ceph
-
 ## Features
 
 ### Core
-
-### Ceph
-
-### Cassandra
 
 ### NFS

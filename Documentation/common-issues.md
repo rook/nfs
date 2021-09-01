@@ -1,16 +1,12 @@
 ---
 title: Common Issues
-weight: 10500
+weight: 8000
 ---
 
 # Common Issues
 
 To help troubleshoot your Rook clusters, here are some tips on what information will help solve the issues you might be seeing.
 If after trying the suggestions found on this page and the problem is not resolved, the Rook team is very happy to help you troubleshoot the issues in their Slack channel. Once you have [registered for the Rook Slack](https://slack.rook.io), proceed to the General channel to ask for assistance.
-
-## Ceph
-
-For common issues specific to Ceph, see the [Ceph Common Issues](ceph-common-issues.md) page.
 
 # Troubleshooting Techniques
 
@@ -22,12 +18,12 @@ Kubernetes status is the first line of investigating when something goes wrong w
 
 * Rook pod status:
   * `kubectl get pod -n <cluster-namespace> -o wide`
-    * e.g., `kubectl get pod -n rook-ceph -o wide`
+    * e.g., `kubectl get pod -n rook-nfs -o wide`
 * Logs for Rook pods
-  * Logs for the operator: `kubectl logs -n <cluster-namespace> -l app=<storage-backend-operator>`
-    * e.g., `kubectl logs -n rook-ceph -l app=rook-ceph-operator`
-  * Logs for a specific pod: `kubectl logs -n <cluster-namespace> <pod-name>`, or a pod using a label such as mon1: `kubectl logs -n <cluster-namespace> -l <label-matcher>`
-    * e.g., `kubectl logs -n rook-ceph -l mon=a`
+  * Logs for the operator: `kubectl logs -n <cluster-namespace> -l app=rook-nfs-operator`
+    * e.g., `kubectl logs -n rook-nfs -l app=rook-nfs-operator`
+  * Logs for a specific pod: `kubectl logs -n <cluster-namespace> <pod-name>`, or a pod using a label such as mon1: `kubectl logs -n rook-nfs -l <label-matcher>`
+    * e.g., `kubectl logs -n rook-nfs -l mon=a`
   * Logs on a specific node to find why a PVC is failing to mount:
     * Connect to the node, then get kubelet logs (if your distro is using systemd): `journalctl -u kubelet`
   * Pods with multiple containers

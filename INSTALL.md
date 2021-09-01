@@ -29,14 +29,6 @@ command below. Building in parallel with the `-j` option is recommended.
 make -j4
 ```
 
-Developers may often wish to make only images for a particular backend in their testing. This can
-be done by specifying the `IMAGES` environment variable with `make` as exemplified below. Possible
-values for are as defined by sub-directory names in the `/rook/images/` dir. Multiple images can be separated by a space.
-
-```console
-make -j4 IMAGES='ceph' build
-```
-
 Run `make help` for more options.
 
 ## CI Workflow
@@ -45,8 +37,6 @@ Every PR and every merge to master triggers the CI process in Github actions.
 On every commit to PR and master the CI will build, run unit tests, and run integration tests.
 If the build is for master or a release, the build will also be published to
 [dockerhub.com](https://cloud.docker.com/u/rook/repository/list).
-
-> Note that if the pull request title follows Rook's [contribution guidelines](https://rook.io/docs/rook/master/development-flow.html#commit-structure), the CI will automatically run the appropriate test scenario. For example if a pull request title is "ceph: add a feature", then the tests for the Ceph storage provider will run. Similarly, tests will only run for a single provider with the "cassandra:" and "nfs:" prefixes.
 
 ## Building for other platforms
 

@@ -11,19 +11,6 @@ areas:
     - travisn
     - galexrt
     - jbw976
-  ceph:
-    approvers:
-    - travisn
-    - BlaineEXE
-    - leseb
-    - satoru-takeuchi
-    reviewers:
-    - Madhu-1
-    - sp98
-    - subhamkrai
-  cassandra:
-    approvers:
-    - yanniszark
   nfs:
     reviewers:
     - rohan47

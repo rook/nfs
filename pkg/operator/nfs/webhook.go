@@ -17,7 +17,7 @@ limitations under the License.
 package nfs
 
 import (
-	nfsv1alpha1 "github.com/rook/rook/pkg/apis/nfs.rook.io/v1alpha1"
+	nfsv1alpha1 "github.com/rook/nfs/pkg/apis/nfs.rook.io/v1alpha1"
 
 	ctrl "sigs.k8s.io/controller-runtime"
 )

@@ -19,9 +19,9 @@ package clusterd
 import (
 	"github.com/coreos/pkg/capnslog"
 	netclient "github.com/k8snetworkplumbingwg/network-attachment-definition-client/pkg/client/clientset/versioned/typed/k8s.cni.cncf.io/v1"
-	rookclient "github.com/rook/rook/pkg/client/clientset/versioned"
-	"github.com/rook/rook/pkg/util/exec"
-	"github.com/rook/rook/pkg/util/sys"
+	rookclient "github.com/rook/nfs/pkg/client/clientset/versioned"
+	"github.com/rook/nfs/pkg/util/exec"
+	"github.com/rook/nfs/pkg/util/sys"
 	"github.com/tevino/abool"
 	apiextensionsclient "k8s.io/apiextensions-apiserver/pkg/client/clientset/clientset"
 	"k8s.io/client-go/dynamic"
@@ -65,9 +65,6 @@ type Context struct {
 
 	// The full path to a config file that can be used to override generated settings
 	ConfigFileOverride string
-
-	// Information about the network for this machine and its cluster
-	NetworkInfo NetworkInfo
 
 	// NetworkClient is a connection to the CNI plugin API
 	NetworkClient netclient.K8sCniCncfIoV1Interface

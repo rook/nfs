@@ -27,7 +27,7 @@ var Cmd = &cobra.Command{
 }
 
 var (
-	logger = capnslog.NewPackageLogger("github.com/rook/rook", "nfscmd")
+	logger = capnslog.NewPackageLogger("github.com/rook/nfs", "nfscmd")
 )
 
 func init() {

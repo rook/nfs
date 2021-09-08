@@ -12,12 +12,11 @@ defaults:
 
 jobs:
   TestNfsSuite:
-    if: ${{ github.event_name == 'pull_request' && github.ref != 'refs/heads/master' && contains(github.event.pull_request.labels.*.name, 'nfs')}}
     runs-on: ubuntu-18.04
     strategy:
       fail-fast: false
       matrix:
-        kubernetes-versions : ['v1.16.15', 'v1.21.0']
+        kubernetes-versions : ['v1.17.17', 'v1.22.0']
     steps:
     - name: checkout
       uses: actions/checkout@v2
@@ -32,7 +31,7 @@ jobs:
     - name: setup minikube
       uses: manusa/actions-setup-minikube@v2.4.2
       with:
-        minikube version: 'v1.21.0'
+        minikube version: 'v1.22.0'
         kubernetes version: ${{ matrix.kubernetes-versions }}
         start args: --memory 6g --cpus=2
         github token: ${{ secrets.GITHUB_TOKEN }}
@@ -52,7 +51,7 @@ jobs:
         sudo apt-get install nfs-common
 
     - name: TestNFSSuite
-      run: go test -v -timeout 1800s -run NfsSuite github.com/rook/rook/tests/integration
+      run: go test -v -timeout 1800s -run NfsSuite github.com/rook/nfs/tests/integration
 
     - name: Artifact
       uses: actions/upload-artifact@v2
@@ -64,4 +63,4 @@ jobs:
     - name: setup tmate session for debugging
       if: failure()
       uses: mxschmitt/action-tmate@v3
-      timeout-minutes: 120
+      timeout-minutes: 60

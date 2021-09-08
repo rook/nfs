@@ -19,8 +19,8 @@ limitations under the License.
 package rook
 
 import (
-	internalinterfaces "github.com/rook/rook/pkg/client/informers/externalversions/internalinterfaces"
-	v1alpha2 "github.com/rook/rook/pkg/client/informers/externalversions/rook.io/v1alpha2"
+	internalinterfaces "github.com/rook/nfs/pkg/client/informers/externalversions/internalinterfaces"
+	v1alpha2 "github.com/rook/nfs/pkg/client/informers/externalversions/rook.io/v1alpha2"
 )
 
 // Interface provides access to each of this group's versions.

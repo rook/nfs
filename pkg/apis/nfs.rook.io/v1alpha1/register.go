@@ -20,7 +20,7 @@ import (
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/runtime/schema"
 
-	nfsrookio "github.com/rook/rook/pkg/apis/nfs.rook.io"
+	nfsrookio "github.com/rook/nfs/pkg/apis/nfs.rook.io"
 )
 
 const (

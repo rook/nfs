@@ -30,8 +30,8 @@ jobs:
         go-version: 1.16
 
     - name: copy working directory to GOPATH
-      run: sudo mkdir -p /home/runner/go/src/github.com && sudo cp -a /home/runner/work/rook /home/runner/go/src/github.com/
+      run: sudo mkdir -p /home/runner/go/src/github.com/rook && sudo cp -a /home/runner/work/nfs/nfs /home/runner/go/src/github.com/rook/.
 
     - name: run unit tests
-      working-directory: /home/runner/go/src/github.com/rook/rook
+      working-directory: /home/runner/go/src/github.com/rook/nfs
       run: GOPATH=$(go env GOPATH) make -j $(nproc) test

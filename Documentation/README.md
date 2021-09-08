@@ -12,17 +12,11 @@ We plan to continue adding support for other storage systems and environments ba
 ## Quick Start Guides
 
 Starting Rook in your cluster is as simple as a few `kubectl` commands depending on the storage provider.
-See our [Quickstart](quickstart.md) guide list for the detailed instructions for each storage provider.
+See our [Quickstart](quickstart.md) guide list for the detailed instructions to install the NFS operator.
 
 ## Storage Provider Designs
 
-High-level Storage Provider design documents:
-
-| Storage Provider        | Status | Description                                                                                                                                            |
-| ----------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [Ceph](ceph-storage.md) | Stable | Ceph is a highly scalable distributed storage solution for block storage, object storage, and shared filesystems with years of production deployments. |
-
-Low level design documentation for supported list of storage systems collected at [design docs](https://github.com/rook/rook/tree/master/design) section.
+Low level design documentation for supported list of storage systems collected at [design docs](https://github.com/rook/nfs/tree/master/design) section.
 
 ## Need help? Be sure to join the Rook Slack
 

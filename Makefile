@@ -62,13 +62,13 @@ SERVER_PLATFORMS := $(filter linux_%,$(PLATFORMS))
 CLIENT_PLATFORMS := $(filter-out linux_%,$(PLATFORMS))
 
 # server projects that we build on server platforms
-SERVER_PACKAGES = $(GO_PROJECT)/cmd/rook $(GO_PROJECT)/cmd/rookflex
+SERVER_PACKAGES = $(GO_PROJECT)/cmd/rook
 
 # tests packages that will be compiled into binaries
 TEST_PACKAGES = $(GO_PROJECT)/tests/integration
 
 # the root go project
-GO_PROJECT=github.com/rook/rook
+GO_PROJECT=github.com/rook/nfs
 
 # inject the version number into the golang version package using the -X linker flag
 LDFLAGS += -X $(GO_PROJECT)/pkg/version.Version=$(VERSION)
@@ -96,9 +96,6 @@ GO_TEST_FILTER=$(TESTFILTER)
 
 include build/makelib/golang.mk
 
-# setup helm charts
-include build/makelib/helm.mk
-
 # ====================================================================================
 # Targets
 
@@ -106,7 +103,7 @@ build.version:
 	@mkdir -p $(OUTPUT_DIR)
 	@echo "$(VERSION)" > $(OUTPUT_DIR)/version
 
-build.common: build.version helm.build mod.check
+build.common: build.version mod.check
 	@$(MAKE) go.init
 	@$(MAKE) go.validate
 
@@ -115,7 +112,7 @@ do.build.platform.%:
 
 do.build.parallel: $(foreach p,$(PLATFORMS), do.build.platform.$(p))
 
-build: csv-clean build.common ## Only build for linux platform
+build: build.common ## Only build for linux platform
 	@$(MAKE) go.build PLATFORM=linux_$(GOHOSTARCH)
 	@$(MAKE) -C images PLATFORM=linux_$(GOHOSTARCH)
 
@@ -153,7 +150,7 @@ codegen: ${CODE_GENERATOR} ## Run code generators.
 mod.check: go.mod.check ## Check if any go modules changed.
 mod.update: go.mod.update ## Update all go modules.
 
-clean: csv-clean ## Remove all files that are created by building.
+clean: ## Remove all files that are created by building.
 	@$(MAKE) go.mod.clean
 	@$(MAKE) -C images clean
 	@rm -fr $(OUTPUT_DIR) $(WORK_DIR)
@@ -163,15 +160,6 @@ distclean: clean ## Remove all files that are created by building or configuring
 
 prune: ## Prune cached artifacts.
 	@$(MAKE) -C images prune
-
-# Change how CRDs are generated for CSVs
-csv-ceph: export MAX_DESC_LEN=0 # sets the description length to 0 since CSV cannot be bigger than 1MB
-csv-ceph: export NO_OB_OBC_VOL_GEN=true
-csv-ceph: csv-clean crds ## Generate a CSV file for OLM.
-	$(MAKE) -C images/ceph csv
-
-csv-clean: ## Remove existing OLM files.
-	@$(MAKE) -C images/ceph csv-clean
 
 crds: $(CONTROLLER_GEN) $(YQ)
 	@echo Updating CRD manifests

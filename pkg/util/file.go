@@ -27,7 +27,7 @@ import (
 	"github.com/coreos/pkg/capnslog"
 )
 
-var logger = capnslog.NewPackageLogger("github.com/rook/rook", "util")
+var logger = capnslog.NewPackageLogger("github.com/rook/nfs", "util")
 
 func WriteFile(filePath string, contentBuffer bytes.Buffer) error {
 	dir := filepath.Dir(filePath)

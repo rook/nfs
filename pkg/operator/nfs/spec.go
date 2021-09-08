@@ -18,8 +18,9 @@ package nfs
 
 import (
 	"context"
-	nfsv1alpha1 "github.com/rook/rook/pkg/apis/nfs.rook.io/v1alpha1"
-	"github.com/rook/rook/pkg/operator/k8sutil"
+
+	nfsv1alpha1 "github.com/rook/nfs/pkg/apis/nfs.rook.io/v1alpha1"
+	"github.com/rook/nfs/pkg/operator/k8sutil"
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"

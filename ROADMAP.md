@@ -6,13 +6,13 @@ Community and contributor involvement is vital for successfully implementing all
 We hope that the items listed below will inspire further engagement from the community to keep Rook progressing and shipping exciting and valuable features.
 
 Any dates listed below and the specific issues that will ship in a given milestone are subject to change but should give a general idea of what we are planning.
-See the [Github project boards](https://github.com/rook/cassandra/projects) for the most up-to-date issues and their status.
+See the [Github project boards](https://github.com/rook/nfs/projects) for the most up-to-date issues and their status.
 
 
-## Rook-NFS 1.8
+## Rook-NFS 1.7
 
-Rook-NFS v1.8 is separated from the main Rook project and can be released independently. This
-is currently the last planned release of Rook-NFS.
+* Rook-NFS v1.7.3 is separated from the main Rook project and can be released independently. This
+  is currently the last planned release of Rook-NFS.
 
 
 ## Themes

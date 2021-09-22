@@ -20,7 +20,7 @@ Rook is hosted by the [Cloud Native Computing Foundation](https://cncf.io) (CNCF
 
 ## Getting Started and Documentation
 
-For installation, deployment, and administration of the NFS storage provider, see our [Documentation](https://rook.io/docs/nfs/master).
+For installation, deployment, and administration of the NFS storage provider, see our [Documentation](https://rook.io/docs/nfs/latest).
 
 ## Contributing
 

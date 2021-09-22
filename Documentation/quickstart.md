@@ -411,7 +411,7 @@ Save this PVC and NFS Server instance as `nfs-ceph.yaml`:
 ---
 # A rook ceph cluster must be running
 # Create a rook ceph cluster using examples in rook/cluster/examples/kubernetes/ceph
-# Refer to https://rook.io/docs/rook/master/ceph-quickstart.html for a quick rook cluster setup
+# Refer to https://rook.io/docs/rook/latest/ceph-quickstart.html for a quick rook cluster setup
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:

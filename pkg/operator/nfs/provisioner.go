@@ -132,7 +132,7 @@ func (p *Provisioner) Provision(ctx context.Context, options controller.Provisio
 	}
 
 	if err := os.Chmod(fullPath, 0777); err != nil {
-		return nil, controller.ProvisioningFinished, errors.New("unable to change directory permision to 0777: " + err.Error())
+		return nil, controller.ProvisioningFinished, errors.New("unable to change directory permission to 0777: " + err.Error())
 	}
 	capacity := options.PVC.Spec.Resources.Requests[v1.ResourceName(v1.ResourceStorage)]
 	block, err := p.createQuota(exportPath, fullPath, strconv.FormatInt(capacity.Value(), 10))

@@ -63,7 +63,6 @@ pull_request_rules:
     actions:
       merge:
         method: merge
-        strict: false
       dismiss_reviews: {}
       delete_head_branch: {}
 
@@ -81,7 +80,6 @@ pull_request_rules:
     actions:
       merge:
         method: merge
-        strict: false
       dismiss_reviews: {}
       delete_head_branch: {}
 
@@ -96,7 +94,6 @@ pull_request_rules:
     actions:
       merge:
         method: merge
-        strict: false
       dismiss_reviews: {}
       delete_head_branch: {}
 
@@ -111,7 +108,6 @@ pull_request_rules:
     actions:
       merge:
         method: merge
-        strict: false
       dismiss_reviews: {}
       delete_head_branch: {}
 
@@ -144,7 +140,6 @@ pull_request_rules:
     actions:
       merge:
         method: merge
-        strict: false
       dismiss_reviews: {}
       delete_head_branch: {}
 
@@ -177,7 +172,6 @@ pull_request_rules:
     actions:
       merge:
         method: merge
-        strict: false
       dismiss_reviews: {}
       delete_head_branch: {}
 

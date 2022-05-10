@@ -5,6 +5,8 @@ weight: 3000
 
 # NFS Server CRD
 
+**The Rook NFS operator is [deprecated](https://github.com/rook/nfs#deprecated)**
+
 NFS Server can be created and configured using the `nfsservers.nfs.rook.io` custom resource definition (CRD).
 Please refer to the [user guide walk-through](nfs.md) for complete instructions.
 This page will explain all the available configuration options on the NFS CRD.

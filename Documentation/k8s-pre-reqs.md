@@ -6,6 +6,8 @@ weight: 1000
 
 # Prerequisites
 
+**The Rook NFS operator is [deprecated](https://github.com/rook/nfs#deprecated)**
+
 Rook can be installed on any existing Kubernetes cluster as long as it meets the minimum version
 and Rook is granted the required privileges (see below for more information).
 

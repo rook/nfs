@@ -32,6 +32,7 @@ require (
 
 replace (
 	github.com/googleapis/gnostic => github.com/googleapis/gnostic v0.4.1
+	github.com/hashicorp/vault/sdk => github.com/hashicorp/vault/sdk master
 	github.com/kubernetes-incubator/external-storage => github.com/libopenstorage/external-storage v0.20.4-openstorage-rc3
 	github.com/portworx/sched-ops => github.com/portworx/sched-ops v0.20.4-openstorage-rc3
 	google.golang.org/grpc => google.golang.org/grpc v1.27.1

@@ -122,7 +122,7 @@ func (p *Provisioner) Provision(ctx context.Context, options controller.Provisio
 	}
 
 	if !found {
-		return nil, controller.ProvisioningFinished, fmt.Errorf("No export name from storageclass is match with NFSServer %s in namespace %s", nfsserver.Name, nfsserver.Namespace)
+		return nil, controller.ProvisioningFinished, fmt.Errorf("No export name from storageclass is a match with NFSServer %s in namespace %s", nfsserver.Name, nfsserver.Namespace)
 	}
 
 	pvName := strings.Join([]string{options.PVC.Namespace, options.PVC.Name, options.PVName}, "-")
@@ -131,6 +131,9 @@ func (p *Provisioner) Provision(ctx context.Context, options controller.Provisio
 		return nil, controller.ProvisioningFinished, errors.New("unable to create directory to provision new pv: " + err.Error())
 	}
 
+	if err := os.Chmod(fullPath, 0777); err != nil {
+		return nil, controller.ProvisioningFinished, errors.New("unable to change directory permission to 0777: " + err.Error())
+	}
 	capacity := options.PVC.Spec.Resources.Requests[v1.ResourceName(v1.ResourceStorage)]
 	block, err := p.createQuota(exportPath, fullPath, strconv.FormatInt(capacity.Value(), 10))
 	if err != nil {

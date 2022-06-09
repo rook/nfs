@@ -5,6 +5,8 @@ weight: 8000
 
 # Common Issues
 
+**The Rook NFS operator is [deprecated](https://github.com/rook/nfs#deprecated)**
+
 To help troubleshoot your Rook clusters, here are some tips on what information will help solve the issues you might be seeing.
 If after trying the suggestions found on this page and the problem is not resolved, the Rook team is very happy to help you troubleshoot the issues in their Slack channel. Once you have [registered for the Rook Slack](https://slack.rook.io), proceed to the General channel to ask for assistance.
 

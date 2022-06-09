@@ -5,7 +5,14 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/rook/nfs)](https://goreportcard.com/report/github.com/rook/nfs)
 [![Slack](https://slack.rook.io/badge.svg)](https://slack.rook.io)
 
-# What is Rook?
+# Deprecated
+The Rook NFS operator has been deprecated due to lack of community support. We recommend that users
+consider [Rook-Ceph's CephNFS](https://rook.github.io/docs/rook/latest/ceph-nfs-crd.html) which is
+under active development. Alternatively, there is a
+[classical, non-CSI NFS server provisioner](https://github.com/kubernetes-sigs/nfs-ganesha-server-and-external-provisioner)
+if users don't wish to run a CephCluster and CephFilesystem to host NFS storage.
+
+## What is Rook?
 
 Rook is an open source **cloud-native storage orchestrator** for Kubernetes, providing the platform, framework, and support for a diverse set of storage solutions to natively integrate with cloud-native environments.
 

@@ -6,6 +6,8 @@ weight: 2000
 
 # Network Filesystem (NFS) Quickstart
 
+**The Rook NFS operator is [deprecated](https://github.com/rook/nfs#deprecated)**
+
 Welcome to Rook! We hope you have a great experience installing the Rook **cloud-native storage orchestrator** platform
 to enable highly available, durable storage in your Kubernetes cluster.
 

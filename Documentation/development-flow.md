@@ -5,6 +5,8 @@ weight: 12000
 
 # Contributing
 
+**The Rook NFS operator is [deprecated](https://github.com/rook/nfs#deprecated)**
+
 Thank you for your time and effort to help us improve Rook! Here are a few steps to get started. If you have any questions,
 don't hesitate to reach out to us on our [Slack](https://rook-io.slack.com) dev channel.
 

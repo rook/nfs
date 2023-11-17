@@ -7,7 +7,7 @@
 
 # Deprecated
 The Rook NFS operator has been deprecated due to lack of community support. We recommend that users
-consider [Rook-Ceph's CephNFS](https://rook.github.io/docs/rook/latest/ceph-nfs-crd.html) which is
+consider [Rook-Ceph's CephNFS](https://rook.io/docs/rook/latest/CRDs/ceph-nfs-crd) which is
 under active development. Alternatively, there is a
 [classical, non-CSI NFS server provisioner](https://github.com/kubernetes-sigs/nfs-ganesha-server-and-external-provisioner)
 if users don't wish to run a CephCluster and CephFilesystem to host NFS storage.
